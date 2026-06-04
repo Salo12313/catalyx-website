@@ -607,11 +607,6 @@
         <span>I confirm I am a <strong>qualified researcher</strong> purchasing for in vitro / laboratory research only — <strong>not for human or veterinary use</strong>.</span>
       </label>
 
-      <label class="gate-check">
-        <input type="checkbox" id="chk-terms">
-        <span>I have read and agree to the <a href="#" style="color:var(--teal-bright)">Terms of Use</a> and <a href="#" style="color:var(--teal-bright)">Disclaimer</a>.</span>
-      </label>
-
       <div class="gate-actions">
         <button class="gate-btn gate-decline" onclick="window.location.href='https://google.com'">Exit Site</button>
         <button class="gate-btn gate-accept" id="enter-btn" disabled onclick="document.getElementById('gate').style.display='none'">Enter Site</button>
@@ -896,7 +891,7 @@
 
 <script>
   // Age gate enable
-  const checks = ['chk-age', 'chk-researcher', 'chk-terms'];
+  const checks = ['chk-age', 'chk-researcher'];
   const enterBtn = document.getElementById('enter-btn');
   checks.forEach(id => {
     document.getElementById(id).addEventListener('change', () => {
