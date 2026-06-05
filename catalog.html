@@ -169,15 +169,19 @@
     card.href = `product.html?id=${p.id}`;
     card.style.textDecoration = 'none';
     card.style.color = 'inherit';
+    const imageHtml = p.image
+      ? `<img src="${p.image}" alt="${p.name}" class="product-real-img">`
+      : `<div class="vial" style="--cap-color:${p.color};--cap-shadow:${p.color}99">
+           <div class="vial-label">
+             <div class="arc" style="background:${p.color}"></div>
+             <div class="name">${p.name}</div>
+             <div class="dose" style="color:${p.color}">${vialDose}</div>
+           </div>
+         </div>`;
+
     card.innerHTML = `
       <div class="product-img">
-        <div class="vial" style="--cap-color:${p.color};--cap-shadow:${p.color}99">
-          <div class="vial-label">
-            <div class="arc" style="background:${p.color}"></div>
-            <div class="name">${p.name}</div>
-            <div class="dose" style="color:${p.color}">${vialDose}</div>
-          </div>
-        </div>
+        ${imageHtml}
         ${hasMultipleVariants ? `<div class="variant-badge">${p.variants.length} dose options</div>` : ''}
       </div>
       <div class="product-info">

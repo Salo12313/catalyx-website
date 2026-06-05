@@ -247,17 +247,21 @@
       </div>
     ` : '';
 
+    const heroImage = product.image
+      ? `<img src="${product.image}" alt="${product.name} ${variant.dose}" class="pd-real-img">`
+      : `<div class="vial-large" style="--cap-color:${product.color};--cap-shadow:${product.color}99">
+           <div class="vial-large-label">
+             <div class="arc" style="background:${product.color}"></div>
+             <div class="name">${product.name}</div>
+             <div class="dose" style="color:${product.color}">${variant.dose}</div>
+             <div class="purity">Purity ≥ 99%</div>
+             <div class="ruo">FOR RESEARCH USE ONLY</div>
+           </div>
+         </div>`;
+
     detail.innerHTML = `
       <div class="pd-image">
-        <div class="vial-large" style="--cap-color:${product.color};--cap-shadow:${product.color}99">
-          <div class="vial-large-label">
-            <div class="arc" style="background:${product.color}"></div>
-            <div class="name">${product.name}</div>
-            <div class="dose" style="color:${product.color}">${variant.dose}</div>
-            <div class="purity">Purity ≥ 99%</div>
-            <div class="ruo">FOR RESEARCH USE ONLY</div>
-          </div>
-        </div>
+        ${heroImage}
       </div>
 
       <div class="pd-info">

@@ -60,6 +60,7 @@ const products = [
     cat: "Cosmetic",
     category: "Copper Tripeptide",
     color: "#e8741c",
+    image: "images/ghk-cu.jpg",
     tags: ["Copper Chelating", "3 Amino Acids", "Lyophilized"],
     description: "A copper-chelating tripeptide naturally found in human plasma. Studied in dermatological and tissue research literature for its role in copper transport and matrix remodeling pathways. Premium research-grade reference material.",
     variants: [
