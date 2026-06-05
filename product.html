@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product — Catalyx Peptides</title>
+<meta name="description" content="Catalyx Peptides product detail page with specifications, Certificate of Analysis, and research data.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://catalyxpeptides.com/">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= AGE GATE ================= -->
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <div class="gate-logo"><img src="logo.svg" alt="Catalyx Peptides"></div>
+      <h2>Restricted Access</h2>
+      <p>
+        This site contains information about laboratory research reference materials.
+        To enter, please confirm the following:
+      </p>
+
+      <label class="gate-check">
+        <input type="checkbox" id="chk-age">
+        <span>I confirm that I am at least <strong>21 years of age</strong>.</span>
+      </label>
+
+      <label class="gate-check">
+        <input type="checkbox" id="chk-researcher">
+        <span>I confirm I am a <strong>qualified researcher</strong> purchasing for in vitro / laboratory research only — <strong>not for human or veterinary use</strong>.</span>
+      </label>
+
+      <div class="gate-actions">
+        <button class="gate-btn gate-decline" onclick="window.location.href='https://google.com'">Exit Site</button>
+        <button class="gate-btn gate-accept" id="enter-btn" disabled>Enter Site</button>
+      </div>
+
+      <p class="gate-fine">
+        Products are not for human or veterinary use, not for use in diagnostic procedures,
+        and have not been evaluated by the U.S. Food and Drug Administration.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================= TOP STRIP ================= -->
+  <div class="top-strip">
+    <span class="teal">●</span> FREE DISCREET SHIPPING ON ORDERS $200+
+    <span class="dot">|</span>
+    LOT-SPECIFIC COA FOR EVERY PRODUCT
+    <span class="dot">|</span>
+    HPLC VERIFIED <span class="teal">≥99%</span> PURITY
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <img src="logo.svg" alt="Catalyx Peptides">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalog.html" class="active">Catalog</a>
+        <a href="coa.html">COAs</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-btn">Account</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= PRODUCT DETAIL ================= -->
+  <section class="product-detail-section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a> <span>/</span>
+        <a href="catalog.html">Catalog</a> <span>/</span>
+        <span id="bc-name">Product</span>
+      </div>
+
+      <div class="product-detail" id="product-detail">
+        <!-- Injected by JS -->
+      </div>
+
+      <!-- Trust row -->
+      <div class="product-trust">
+        <div class="pt-item">
+          <div class="pt-icon">🚚</div>
+          <div>
+            <div class="pt-title">Free shipping</div>
+            <div class="pt-sub">on orders over $200</div>
+          </div>
+        </div>
+        <div class="pt-item">
+          <div class="pt-icon">🛡️</div>
+          <div>
+            <div class="pt-title">Damage protection</div>
+            <div class="pt-sub">included</div>
+          </div>
+        </div>
+        <div class="pt-item">
+          <div class="pt-icon">🔒</div>
+          <div>
+            <div class="pt-title">Secure checkout</div>
+            <div class="pt-sub">256-bit SSL</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COA block -->
+      <div class="coa-block">
+        <div class="coa-header">
+          <div class="coa-flask">🧪</div>
+          <div>
+            <h2>Certificate of Analysis</h2>
+            <div class="coa-sub">Third Party Tested · HPLC</div>
+          </div>
+        </div>
+
+        <div class="coa-detail-card" id="coa-detail">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <img src="logo.svg" alt="Catalyx Peptides">
+        <p>
+          Catalyx Peptides supplies high-purity research reference materials
+          to qualified laboratories. Founded by chemists, built on analytical
+          transparency.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="catalog.html">Full Catalog</a>
+        <a href="coa.html">Certificates of Analysis</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#">Safety Data Sheets</a>
+        <a href="#">Shipping & Returns</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Support</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Research Disclaimer</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>RESEARCH USE ONLY DISCLAIMER:</strong>
+      All products sold by Catalyx Peptides are intended for laboratory
+      research use only. Products are <strong>NOT for human or veterinary use</strong>,
+      not for use in diagnostic procedures, not for food, drug, cosmetic, or
+      household use, and have <strong>NOT been evaluated by the U.S. Food and
+      Drug Administration</strong>.
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Catalyx Peptides LLC. All rights reserved.</div>
+      <div>Made in USA · Ships Worldwide where permitted by law</div>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+<script src="products.js"></script>
+<script>
+  // Read SKU from URL
+  const params = new URLSearchParams(window.location.search);
+  const sku = params.get('sku');
+  const product = sku ? findProductBySku(sku) : null;
+
+  const detail = document.getElementById('product-detail');
+  const coaDetail = document.getElementById('coa-detail');
+  const bcName = document.getElementById('bc-name');
+
+  if (!product) {
+    detail.innerHTML = `
+      <div class="product-not-found">
+        <h2>Product Not Found</h2>
+        <p>The product you're looking for doesn't exist. Browse our full catalog instead.</p>
+        <a href="catalog.html" class="btn-primary" style="display:inline-block;margin-top:20px">Browse Catalog</a>
+      </div>
+    `;
+    coaDetail.innerHTML = '';
+    document.querySelector('.coa-block').style.display = 'none';
+    document.querySelector('.product-trust').style.display = 'none';
+  } else {
+    document.title = `${product.name} ${product.dose} — Catalyx Peptides`;
+    bcName.textContent = `${product.name} ${product.dose}`;
+
+    // Product detail
+    detail.innerHTML = `
+      <div class="pd-image">
+        <div class="vial-large" style="--cap-color:${product.color};--cap-shadow:${product.color}99">
+          <div class="vial-large-label">
+            <div class="arc" style="background:${product.color}"></div>
+            <div class="name">${product.name}</div>
+            <div class="dose" style="color:${product.color}">${product.dose}</div>
+            <div class="purity">Purity ≥ 99%</div>
+            <div class="ruo">FOR RESEARCH USE ONLY</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pd-info">
+        <div class="pd-cat">${product.category}</div>
+        <h1>${product.name}</h1>
+        <div class="pd-dose-label">${product.dose}</div>
+
+        <div class="pd-tags">
+          ${product.tags.map(t => `<span class="pd-tag">${t}</span>`).join('')}
+        </div>
+
+        <p class="pd-desc">${product.description}</p>
+
+        <div class="pd-spec-row">
+          <div class="pd-spec">
+            <div class="pd-spec-label">SKU</div>
+            <div class="pd-spec-val">${product.sku}</div>
+          </div>
+          <div class="pd-spec">
+            <div class="pd-spec-label">Dosage</div>
+            <div class="pd-spec-val">${product.dose}</div>
+          </div>
+          <div class="pd-spec">
+            <div class="pd-spec-label">Purity</div>
+            <div class="pd-spec-val">≥ 99% HPLC</div>
+          </div>
+        </div>
+
+        <div class="pd-cta-row">
+          <a href="${product.coa}" target="_blank" rel="noopener" class="pd-coa-btn">📄 View COA</a>
+          <button class="pd-inquire-btn" onclick="alert('Ordering is currently handled off-platform.\\n\\nPlease DM @catalyxpeptides on Telegram or contact us to place an order.')">Inquire to Order</button>
+        </div>
+
+        <div class="pd-fine">
+          <strong>Research Use Only.</strong> Not for human or veterinary use.
+          Not evaluated by the FDA.
+        </div>
+      </div>
+    `;
+
+    // COA detail
+    let breakdownHtml = '';
+    if (product.coaDetail.breakdown) {
+      breakdownHtml = product.coaDetail.breakdown.map(b => `
+        <div class="coa-row">
+          <span class="coa-label">${b.name}</span>
+          <span class="coa-value">${b.amount}</span>
+        </div>
+      `).join('');
+    }
+
+    coaDetail.innerHTML = `
+      <div class="coa-latest-badge">LATEST</div>
+      <div class="coa-purity">
+        <div class="coa-purity-num">${product.coaDetail.purity}</div>
+        <div class="coa-purity-label">PURITY</div>
+      </div>
+
+      <div class="coa-rows">
+        <div class="coa-row">
+          <span class="coa-label">Variant</span>
+          <span class="coa-value">${product.name} (${product.dose})</span>
+        </div>
+        <div class="coa-row">
+          <span class="coa-label">Lot #</span>
+          <span class="coa-value coa-mono">${product.coaDetail.lot}</span>
+        </div>
+        <div class="coa-row">
+          <span class="coa-label">Labeled</span>
+          <span class="coa-value" style="color:${product.color};font-weight:700">${product.coaDetail.labeled}</span>
+        </div>
+        <div class="coa-row">
+          <span class="coa-label">Actual</span>
+          <span class="coa-value" style="color:${product.color};font-weight:700">${product.coaDetail.actual}</span>
+        </div>
+        ${breakdownHtml}
+        <div class="coa-row">
+          <span class="coa-label">Tested</span>
+          <span class="coa-value">${product.coaDetail.tested}</span>
+        </div>
+      </div>
+
+      <a href="${product.coa}" target="_blank" rel="noopener" class="coa-view-btn">📄 View Full COA</a>
+    `;
+  }
+</script>
+
+</body>
+</html>

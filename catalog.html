@@ -40,7 +40,7 @@
 
       <div class="gate-actions">
         <button class="gate-btn gate-decline" onclick="window.location.href='https://google.com'">Exit Site</button>
-        <button class="gate-btn gate-accept" id="enter-btn" disabled onclick="document.getElementById('gate').style.display='none'">Enter Site</button>
+        <button class="gate-btn gate-accept" id="enter-btn" disabled>Enter Site</button>
       </div>
 
       <p class="gate-fine">
@@ -149,41 +149,16 @@
     </div>
   </footer>
 
+<script src="script.js"></script>
+<script src="products.js"></script>
 <script>
-  // Age gate enable
-  const checks = ['chk-age', 'chk-researcher'];
-  const enterBtn = document.getElementById('enter-btn');
-  checks.forEach(id => {
-    document.getElementById(id).addEventListener('change', () => {
-      const allChecked = checks.every(c => document.getElementById(c).checked);
-      enterBtn.disabled = !allChecked;
-    });
-  });
-
-  // ============== CATALOG DATA ==============
-  const products = [
-    { name: "GLP-3 (RT)", dose: "10mg", cat: "Metabolic", color: "#0a3d6b", sku: "CTX-GLP3-10", coa: "coa/ctx-glp3-10.pdf" },
-    { name: "GLP-3 (RT)", dose: "20mg", cat: "Metabolic", color: "#0a3d6b", sku: "CTX-GLP3-20", coa: "coa/ctx-glp3-20.pdf" },
-    { name: "GLP-3 (RT)", dose: "30mg", cat: "Metabolic", color: "#0a3d6b", sku: "CTX-GLP3-30", coa: "coa/ctx-glp3-30.pdf" },
-    { name: "GHK-Cu", dose: "100mg", cat: "Cosmetic", color: "#e8741c", sku: "CTX-GHKCU-100", coa: "coa/ctx-ghkcu-100.pdf" },
-    { name: "BPC 157", dose: "10mg", cat: "Healing", color: "#1ba9c0", sku: "CTX-BPC157-10", coa: "coa/ctx-bpc157-10.pdf" },
-    { name: "TB 500", dose: "10mg", cat: "Healing", color: "#2d5e3a", sku: "CTX-TB500-10", coa: "coa/ctx-tb500-10.pdf" },
-    { name: "Tesamorelin", dose: "10mg", cat: "Growth", color: "#6e3eaa", sku: "CTX-TES-10", coa: "coa/ctx-tes-10.pdf" },
-    { name: "CJC 1295 / Ipamorelin", dose: "10mg", cat: "Growth", color: "#1a2a5e", sku: "CTX-CJC-10", coa: "coa/ctx-cjc-10.pdf" },
-    { name: "MOTS-C", dose: "10mg", cat: "Metabolic", color: "#3fc89c", sku: "CTX-MOTSC-10", coa: "coa/ctx-motsc-10.pdf" },
-    { name: "Melanotan II", dose: "10mg", cat: "Cosmetic", color: "#d63838", sku: "CTX-MT2-10", coa: "coa/ctx-mt2-10.pdf" },
-    { name: "GLOW", dose: "70mg", cat: "Blend", color: "#d99316", sku: "CTX-GLOW-70", coa: "coa/ctx-glow-70.pdf" },
-    { name: "KLOW", dose: "80mg", cat: "Blend", color: "#8a1d4a", sku: "CTX-KLOW-80", coa: "coa/ctx-klow-80.pdf" },
-    { name: "KPV", dose: "10mg", cat: "Healing", color: "#8fd13b", sku: "CTX-KPV-10", coa: "coa/ctx-kpv-10.pdf" },
-    { name: "Glutathione", dose: "600mg", cat: "Cosmetic", color: "#b73592", sku: "CTX-GSH-600", coa: "coa/ctx-gsh-600.pdf" },
-    { name: "Bacteriostatic Water", dose: "10ml", cat: "Reagent", color: "#4ab1e0", sku: "CTX-BAC-10", coa: "coa/ctx-bac-10.pdf" },
-    { name: "Acetic Acid", dose: "0.6% · 3ml", cat: "Reagent", color: "#6a7a84", sku: "CTX-AA-3", coa: "coa/ctx-aa-3.pdf" }
-  ];
-
   const grid = document.getElementById('catalog-grid');
   products.forEach(p => {
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     card.className = 'product-card';
+    card.href = `product.html?sku=${p.sku}`;
+    card.style.textDecoration = 'none';
+    card.style.color = 'inherit';
     card.innerHTML = `
       <div class="product-img">
         <div class="vial" style="--cap-color:${p.color};--cap-shadow:${p.color}99">
@@ -201,9 +176,9 @@
         <div class="product-meta">
           <div class="product-meta-row">
             <span class="purity-tag">PURITY ≥ 99%</span>
-            <span class="ruo-tag">RESEARCH USE ONLY</span>
+            <span class="ruo-tag">RUO</span>
           </div>
-          <a href="${p.coa}" class="coa-btn" target="_blank" rel="noopener">Download COA</a>
+          <span class="coa-btn">View Product & COA</span>
         </div>
       </div>
     `;

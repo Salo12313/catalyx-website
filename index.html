@@ -54,7 +54,7 @@
 
       <div class="gate-actions">
         <button class="gate-btn gate-decline" onclick="window.location.href='https://google.com'">Exit Site</button>
-        <button class="gate-btn gate-accept" id="enter-btn" disabled onclick="document.getElementById('gate').style.display='none'">Enter Site</button>
+        <button class="gate-btn gate-accept" id="enter-btn" disabled>Enter Site</button>
       </div>
 
       <p class="gate-fine">
@@ -216,17 +216,7 @@
     </div>
   </footer>
 
-<script>
-  // Age gate enable
-  const checks = ['chk-age', 'chk-researcher'];
-  const enterBtn = document.getElementById('enter-btn');
-  checks.forEach(id => {
-    document.getElementById(id).addEventListener('change', () => {
-      const allChecked = checks.every(c => document.getElementById(c).checked);
-      enterBtn.disabled = !allChecked;
-    });
-  });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
