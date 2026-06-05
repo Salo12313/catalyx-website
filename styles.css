@@ -740,6 +740,62 @@ footer {
   margin-bottom: 24px;
 }
 
+/* Variant (dose) selector */
+.pd-variant-block {
+  margin-bottom: 24px;
+}
+.pd-variant-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ink-mute);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.pd-variant-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pd-variant-pill {
+  padding: 14px 22px;
+  border-radius: 10px;
+  background: #fff;
+  border: 2px solid var(--line);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s;
+  min-width: 80px;
+}
+.pd-variant-pill:hover {
+  border-color: var(--teal-deep);
+  transform: translateY(-1px);
+}
+.pd-variant-pill.active {
+  color: #fff;
+  /* background + border color injected inline based on product color */
+  box-shadow: 0 4px 12px rgba(10,30,45,0.15);
+}
+
+/* Catalog: "X dose options" badge */
+.variant-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(10,30,45,0.85);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 4;
+}
+
 .pd-spec-row {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 12px; margin-bottom: 24px;

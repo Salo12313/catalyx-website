@@ -187,10 +187,23 @@
 <script src="script.js"></script>
 <script src="products.js"></script>
 <script>
-  // Read SKU from URL
+  // Read params from URL. Support both ?id=glp3-rt and ?sku=CTX-GLP3-10 for backward-compat
   const params = new URLSearchParams(window.location.search);
-  const sku = params.get('sku');
-  const product = sku ? findProductBySku(sku) : null;
+  const id = params.get('id');
+  const skuParam = params.get('sku');
+
+  let product = null;
+  let selectedVariantIndex = 0;
+
+  if (id) {
+    product = findProductById(id);
+  } else if (skuParam) {
+    const match = findByVariantSku(skuParam);
+    if (match) {
+      product = match.product;
+      selectedVariantIndex = product.variants.findIndex(v => v.sku === skuParam);
+    }
+  }
 
   const detail = document.getElementById('product-detail');
   const coaDetail = document.getElementById('coa-detail');
@@ -208,17 +221,39 @@
     document.querySelector('.coa-block').style.display = 'none';
     document.querySelector('.product-trust').style.display = 'none';
   } else {
-    document.title = `${product.name} ${product.dose} — Catalyx Peptides`;
-    bcName.textContent = `${product.name} ${product.dose}`;
+    renderProduct();
+  }
 
-    // Product detail
+  function renderProduct() {
+    const variant = product.variants[selectedVariantIndex];
+    const hasMultipleVariants = product.variants.length > 1;
+
+    document.title = `${product.name} ${variant.dose} — Catalyx Peptides`;
+    bcName.textContent = `${product.name} ${variant.dose}`;
+
+    // Variant selector HTML (only render if multiple variants)
+    const variantSelector = hasMultipleVariants ? `
+      <div class="pd-variant-block">
+        <div class="pd-variant-label">DOSAGE</div>
+        <div class="pd-variant-pills">
+          ${product.variants.map((v, i) => `
+            <button class="pd-variant-pill ${i === selectedVariantIndex ? 'active' : ''}"
+                    data-index="${i}"
+                    style="${i === selectedVariantIndex ? `background:${product.color};border-color:${product.color}` : ''}">
+              ${v.dose}
+            </button>
+          `).join('')}
+        </div>
+      </div>
+    ` : '';
+
     detail.innerHTML = `
       <div class="pd-image">
         <div class="vial-large" style="--cap-color:${product.color};--cap-shadow:${product.color}99">
           <div class="vial-large-label">
             <div class="arc" style="background:${product.color}"></div>
             <div class="name">${product.name}</div>
-            <div class="dose" style="color:${product.color}">${product.dose}</div>
+            <div class="dose" style="color:${product.color}">${variant.dose}</div>
             <div class="purity">Purity ≥ 99%</div>
             <div class="ruo">FOR RESEARCH USE ONLY</div>
           </div>
@@ -228,7 +263,7 @@
       <div class="pd-info">
         <div class="pd-cat">${product.category}</div>
         <h1>${product.name}</h1>
-        <div class="pd-dose-label">${product.dose}</div>
+        <div class="pd-dose-label" id="pd-dose">${variant.dose}</div>
 
         <div class="pd-tags">
           ${product.tags.map(t => `<span class="pd-tag">${t}</span>`).join('')}
@@ -236,14 +271,16 @@
 
         <p class="pd-desc">${product.description}</p>
 
+        ${variantSelector}
+
         <div class="pd-spec-row">
           <div class="pd-spec">
             <div class="pd-spec-label">SKU</div>
-            <div class="pd-spec-val">${product.sku}</div>
+            <div class="pd-spec-val">${variant.sku}</div>
           </div>
           <div class="pd-spec">
             <div class="pd-spec-label">Dosage</div>
-            <div class="pd-spec-val">${product.dose}</div>
+            <div class="pd-spec-val">${variant.dose}</div>
           </div>
           <div class="pd-spec">
             <div class="pd-spec-label">Purity</div>
@@ -252,7 +289,7 @@
         </div>
 
         <div class="pd-cta-row">
-          <a href="${product.coa}" target="_blank" rel="noopener" class="pd-coa-btn">📄 View COA</a>
+          <a href="${variant.coa}" target="_blank" rel="noopener" class="pd-coa-btn">📄 View COA</a>
           <button class="pd-inquire-btn" onclick="alert('Ordering is currently handled off-platform.\\n\\nPlease DM @catalyxpeptides on Telegram or contact us to place an order.')">Inquire to Order</button>
         </div>
 
@@ -263,10 +300,10 @@
       </div>
     `;
 
-    // COA detail
+    // COA detail card
     let breakdownHtml = '';
-    if (product.coaDetail.breakdown) {
-      breakdownHtml = product.coaDetail.breakdown.map(b => `
+    if (variant.coaDetail.breakdown) {
+      breakdownHtml = variant.coaDetail.breakdown.map(b => `
         <div class="coa-row">
           <span class="coa-label">${b.name}</span>
           <span class="coa-value">${b.amount}</span>
@@ -277,36 +314,49 @@
     coaDetail.innerHTML = `
       <div class="coa-latest-badge">LATEST</div>
       <div class="coa-purity">
-        <div class="coa-purity-num">${product.coaDetail.purity}</div>
+        <div class="coa-purity-num">${variant.coaDetail.purity}</div>
         <div class="coa-purity-label">PURITY</div>
       </div>
 
       <div class="coa-rows">
         <div class="coa-row">
           <span class="coa-label">Variant</span>
-          <span class="coa-value">${product.name} (${product.dose})</span>
+          <span class="coa-value">${product.name} (${variant.dose})</span>
         </div>
         <div class="coa-row">
           <span class="coa-label">Lot #</span>
-          <span class="coa-value coa-mono">${product.coaDetail.lot}</span>
+          <span class="coa-value coa-mono">${variant.coaDetail.lot}</span>
         </div>
         <div class="coa-row">
           <span class="coa-label">Labeled</span>
-          <span class="coa-value" style="color:${product.color};font-weight:700">${product.coaDetail.labeled}</span>
+          <span class="coa-value" style="color:${product.color};font-weight:700">${variant.coaDetail.labeled}</span>
         </div>
         <div class="coa-row">
           <span class="coa-label">Actual</span>
-          <span class="coa-value" style="color:${product.color};font-weight:700">${product.coaDetail.actual}</span>
+          <span class="coa-value" style="color:${product.color};font-weight:700">${variant.coaDetail.actual}</span>
         </div>
         ${breakdownHtml}
         <div class="coa-row">
           <span class="coa-label">Tested</span>
-          <span class="coa-value">${product.coaDetail.tested}</span>
+          <span class="coa-value">${variant.coaDetail.tested}</span>
         </div>
       </div>
 
-      <a href="${product.coa}" target="_blank" rel="noopener" class="coa-view-btn">📄 View Full COA</a>
+      <a href="${variant.coa}" target="_blank" rel="noopener" class="coa-view-btn">📄 View Full COA</a>
     `;
+
+    // Wire up variant pill clicks
+    document.querySelectorAll('.pd-variant-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        selectedVariantIndex = parseInt(pill.dataset.index);
+        renderProduct();
+        // Update URL without reloading
+        const newUrl = new URL(window.location);
+        newUrl.searchParams.set('id', product.id);
+        newUrl.searchParams.set('variant', product.variants[selectedVariantIndex].sku);
+        window.history.replaceState({}, '', newUrl);
+      });
+    });
   }
 </script>
 
