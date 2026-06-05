@@ -3,31 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Catalyx Peptides — Premium Research Reference Materials</title>
-<meta name="description" content="Catalyx Peptides supplies high-purity research-grade reference materials to qualified laboratories. HPLC-verified ≥99% purity. Lot-specific COAs. Made in USA.">
-<meta name="keywords" content="research peptides, reference materials, HPLC peptides, research grade, COA peptides, laboratory peptides">
+<title>Catalog — Catalyx Peptides</title>
+<meta name="description" content="Browse the full Catalyx Peptides catalog. 16 research-grade peptides and reagents, all HPLC-verified ≥99% purity with lot-specific COAs.">
 <meta name="robots" content="index, follow">
-<meta name="author" content="Catalyx Peptides">
 
-<!-- Open Graph / Social Sharing -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://catalyxpeptides.com/">
-<meta property="og:title" content="Catalyx Peptides — Premium Research Reference Materials">
-<meta property="og:description" content="High-purity research-grade peptides for qualified laboratories. ≥99% HPLC verified. Lot-specific COAs.">
-<meta property="og:site_name" content="Catalyx Peptides">
+<meta property="og:url" content="https://catalyxpeptides.com/catalog.html">
+<meta property="og:title" content="Catalog — Catalyx Peptides">
+<meta property="og:description" content="Full catalog of research-grade reference peptides. ≥99% HPLC purity, lot-specific COAs.">
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Catalyx Peptides — Premium Research Reference Materials">
-<meta name="twitter:description" content="High-purity research-grade peptides for qualified laboratories. ≥99% HPLC verified. Lot-specific COAs.">
-
-<!-- Canonical -->
-<link rel="canonical" href="https://catalyxpeptides.com/">
-
-<!-- Favicon -->
+<link rel="canonical" href="https://catalyxpeptides.com/catalog.html">
 <link rel="icon" type="image/svg+xml" href="logo.svg">
-
-<!-- Stylesheet -->
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -80,8 +66,8 @@
         <img src="logo.svg" alt="Catalyx Peptides">
       </a>
       <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="catalog.html">Catalog</a>
+        <a href="index.html">Home</a>
+        <a href="catalog.html" class="active">Catalog</a>
         <a href="coa.html">COAs</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
@@ -92,71 +78,22 @@
     </nav>
   </header>
 
-  <!-- ================= HERO ================= -->
-  <section class="hero">
-    <div class="hero-wrap">
-      <div>
-        <span class="hero-tag">◆ Research-Grade Reference Materials</span>
-        <h1>Precision <span class="accent">Peptide Science</span>, Engineered for the Lab.</h1>
-        <p>
-          Catalyx Peptides supplies high-purity research reference materials to qualified
-          laboratories worldwide. Every lot is HPLC-verified, COA-backed, and shipped
-          discreetly from our U.S. facility.
-        </p>
-        <div class="hero-cta">
-          <a href="catalog.html" class="btn-primary">Browse Catalog</a>
-          <a href="coa.html" class="btn-ghost">View COAs</a>
-        </div>
-      </div>
-
-      <div class="hero-visual">
-        <div class="visual-row">
-          <div class="visual-stat">
-            <div class="num">≥99%</div>
-            <div class="lbl">HPLC Purity</div>
-          </div>
-          <div class="visual-stat">
-            <div class="num">16</div>
-            <div class="lbl">Active SKUs</div>
-          </div>
-        </div>
-        <div class="visual-badge">
-          <div class="ic">🧪</div>
-          <div>Mass spec + HPLC analysis on every batch — published per lot.</div>
-        </div>
-        <div class="visual-badge" style="margin-top:10px">
-          <div class="ic">📦</div>
-          <div>Lyophilized in amber vials. Cold-chain handling. Discreet packaging.</div>
-        </div>
-        <div class="visual-badge" style="margin-top:10px">
-          <div class="ic">🇺🇸</div>
-          <div>Manufactured & shipped from the United States.</div>
-        </div>
-      </div>
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="page-header">
+    <div class="page-header-wrap">
+      <span class="tag">◆ Research Catalog</span>
+      <h1>Full <span class="accent">Reference Library</span></h1>
+      <p>
+        16 active research peptides and reagents. Every product is HPLC-verified
+        at ≥99% purity and ships with a lot-specific Certificate of Analysis.
+      </p>
     </div>
   </section>
 
-  <!-- ================= TRUST BAR ================= -->
-  <div class="trust">
-    <div class="trust-wrap">
-      <div class="trust-item"><span class="ic">●</span> HPLC Verified</div>
-      <div class="trust-item"><span class="ic">●</span> COA Per Lot</div>
-      <div class="trust-item"><span class="ic">●</span> Made in USA</div>
-      <div class="trust-item"><span class="ic">●</span> Discreet Shipping</div>
-      <div class="trust-item"><span class="ic">●</span> Cold-Chain Logistics</div>
-      <div class="trust-item"><span class="ic">●</span> Crypto Accepted</div>
-    </div>
-  </div>
-
-  <!-- ================= NEWSLETTER ================= -->
-  <section class="newsletter">
+  <!-- ================= CATALOG ================= -->
+  <section>
     <div class="container">
-      <h2>Stay Informed on Lab Releases</h2>
-      <p>New SKU launches, lot announcements, and quality updates — sent to verified researchers only.</p>
-      <form onsubmit="event.preventDefault(); alert('Demo — newsletter signup not wired up.')">
-        <input type="email" placeholder="lab@institution.edu" required>
-        <button type="submit">Subscribe</button>
-      </form>
+      <div class="catalog-grid" id="catalog-grid"></div>
     </div>
   </section>
 
@@ -203,11 +140,7 @@
       research use only. Products are <strong>NOT for human or veterinary use</strong>,
       not for use in diagnostic procedures, not for food, drug, cosmetic, or
       household use, and have <strong>NOT been evaluated by the U.S. Food and
-      Drug Administration</strong>. By purchasing from Catalyx Peptides, the buyer
-      acknowledges that they are a qualified researcher or institution and
-      assumes all responsibility for the safe handling, use, and disposal
-      of these materials in accordance with all applicable local, state,
-      and federal regulations.
+      Drug Administration</strong>.
     </div>
 
     <div class="footer-bottom">
@@ -225,6 +158,56 @@
       const allChecked = checks.every(c => document.getElementById(c).checked);
       enterBtn.disabled = !allChecked;
     });
+  });
+
+  // ============== CATALOG DATA ==============
+  const products = [
+    { name: "GLP-3 (RT)", dose: "10mg", cat: "Metabolic", color: "#0a3d6b", sku: "CTX-GLP3-10", coa: "coa/ctx-glp3-10.pdf" },
+    { name: "GLP-3 (RT)", dose: "20mg", cat: "Metabolic", color: "#0a3d6b", sku: "CTX-GLP3-20", coa: "coa/ctx-glp3-20.pdf" },
+    { name: "GLP-3 (RT)", dose: "30mg", cat: "Metabolic", color: "#0a3d6b", sku: "CTX-GLP3-30", coa: "coa/ctx-glp3-30.pdf" },
+    { name: "GHK-Cu", dose: "100mg", cat: "Cosmetic", color: "#e8741c", sku: "CTX-GHKCU-100", coa: "coa/ctx-ghkcu-100.pdf" },
+    { name: "BPC 157", dose: "10mg", cat: "Healing", color: "#1ba9c0", sku: "CTX-BPC157-10", coa: "coa/ctx-bpc157-10.pdf" },
+    { name: "TB 500", dose: "10mg", cat: "Healing", color: "#2d5e3a", sku: "CTX-TB500-10", coa: "coa/ctx-tb500-10.pdf" },
+    { name: "Tesamorelin", dose: "10mg", cat: "Growth", color: "#6e3eaa", sku: "CTX-TES-10", coa: "coa/ctx-tes-10.pdf" },
+    { name: "CJC 1295 / Ipamorelin", dose: "10mg", cat: "Growth", color: "#1a2a5e", sku: "CTX-CJC-10", coa: "coa/ctx-cjc-10.pdf" },
+    { name: "MOTS-C", dose: "10mg", cat: "Metabolic", color: "#3fc89c", sku: "CTX-MOTSC-10", coa: "coa/ctx-motsc-10.pdf" },
+    { name: "Melanotan II", dose: "10mg", cat: "Cosmetic", color: "#d63838", sku: "CTX-MT2-10", coa: "coa/ctx-mt2-10.pdf" },
+    { name: "GLOW", dose: "70mg", cat: "Blend", color: "#d99316", sku: "CTX-GLOW-70", coa: "coa/ctx-glow-70.pdf" },
+    { name: "KLOW", dose: "80mg", cat: "Blend", color: "#8a1d4a", sku: "CTX-KLOW-80", coa: "coa/ctx-klow-80.pdf" },
+    { name: "KPV", dose: "10mg", cat: "Healing", color: "#8fd13b", sku: "CTX-KPV-10", coa: "coa/ctx-kpv-10.pdf" },
+    { name: "Glutathione", dose: "600mg", cat: "Cosmetic", color: "#b73592", sku: "CTX-GSH-600", coa: "coa/ctx-gsh-600.pdf" },
+    { name: "Bacteriostatic Water", dose: "10ml", cat: "Reagent", color: "#4ab1e0", sku: "CTX-BAC-10", coa: "coa/ctx-bac-10.pdf" },
+    { name: "Acetic Acid", dose: "0.6% · 3ml", cat: "Reagent", color: "#6a7a84", sku: "CTX-AA-3", coa: "coa/ctx-aa-3.pdf" }
+  ];
+
+  const grid = document.getElementById('catalog-grid');
+  products.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+      <div class="product-img">
+        <div class="vial" style="--cap-color:${p.color};--cap-shadow:${p.color}99">
+          <div class="vial-label">
+            <div class="arc" style="background:${p.color}"></div>
+            <div class="name">${p.name}</div>
+            <div class="dose" style="color:${p.color}">${p.dose}</div>
+          </div>
+        </div>
+      </div>
+      <div class="product-info">
+        <div class="cat">${p.cat} · ${p.sku}</div>
+        <h3>${p.name}</h3>
+        <div class="dose-text">${p.dose} · Lyophilized · ≥99% HPLC</div>
+        <div class="product-meta">
+          <div class="product-meta-row">
+            <span class="purity-tag">PURITY ≥ 99%</span>
+            <span class="ruo-tag">RESEARCH USE ONLY</span>
+          </div>
+          <a href="${p.coa}" class="coa-btn" target="_blank" rel="noopener">Download COA</a>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
   });
 </script>
 

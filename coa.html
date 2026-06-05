@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates of Analysis — Catalyx Peptides</title>
+<meta name="description" content="Look up Catalyx Peptides Certificates of Analysis (COA) by lot number. Every product is HPLC-verified and ships with lot-specific analytical data.">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://catalyxpeptides.com/coa.html">
+<meta property="og:title" content="Certificates of Analysis — Catalyx Peptides">
+<meta property="og:description" content="Look up lot-specific Certificates of Analysis for every Catalyx product.">
+
+<link rel="canonical" href="https://catalyxpeptides.com/coa.html">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ================= AGE GATE ================= -->
+  <div class="gate" id="gate">
+    <div class="gate-card">
+      <div class="gate-logo"><img src="logo.svg" alt="Catalyx Peptides"></div>
+      <h2>Restricted Access</h2>
+      <p>
+        This site contains information about laboratory research reference materials.
+        To enter, please confirm the following:
+      </p>
+
+      <label class="gate-check">
+        <input type="checkbox" id="chk-age">
+        <span>I confirm that I am at least <strong>21 years of age</strong>.</span>
+      </label>
+
+      <label class="gate-check">
+        <input type="checkbox" id="chk-researcher">
+        <span>I confirm I am a <strong>qualified researcher</strong> purchasing for in vitro / laboratory research only — <strong>not for human or veterinary use</strong>.</span>
+      </label>
+
+      <div class="gate-actions">
+        <button class="gate-btn gate-decline" onclick="window.location.href='https://google.com'">Exit Site</button>
+        <button class="gate-btn gate-accept" id="enter-btn" disabled onclick="document.getElementById('gate').style.display='none'">Enter Site</button>
+      </div>
+
+      <p class="gate-fine">
+        Products are not for human or veterinary use, not for use in diagnostic procedures,
+        and have not been evaluated by the U.S. Food and Drug Administration.
+      </p>
+    </div>
+  </div>
+
+  <!-- ================= TOP STRIP ================= -->
+  <div class="top-strip">
+    <span class="teal">●</span> FREE DISCREET SHIPPING ON ORDERS $200+
+    <span class="dot">|</span>
+    LOT-SPECIFIC COA FOR EVERY PRODUCT
+    <span class="dot">|</span>
+    HPLC VERIFIED <span class="teal">≥99%</span> PURITY
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="brand">
+        <img src="logo.svg" alt="Catalyx Peptides">
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Catalog</a>
+        <a href="coa.html" class="active">COAs</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-btn">Account</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="page-header">
+    <div class="page-header-wrap">
+      <span class="tag">◆ Analytical Transparency</span>
+      <h1>Certificates of <span class="accent">Analysis</span></h1>
+      <p>
+        Every Catalyx product is independently tested via reverse-phase HPLC
+        and mass spectrometry. Enter the lot number printed on your vial label
+        to retrieve the full analytical report, or browse the library below.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= COA SEARCH + LIBRARY ================= -->
+  <section class="coa-page-bg">
+    <div class="container">
+
+      <div class="coa-search-block">
+        <h3>Lookup by Lot Number</h3>
+        <p>Enter the lot number from your vial label (e.g., <strong>LOT-2026-0418-A</strong>) to download the certificate.</p>
+        <div class="coa-search">
+          <input type="text" id="coa-search-input" placeholder="Enter Lot # (e.g., LOT-2026-0418-A)">
+          <button onclick="searchCOA()">Search</button>
+        </div>
+      </div>
+
+      <div class="coa-library-table" id="coa-library">
+        <div class="coa-library-row head">
+          <span>Product</span>
+          <span>SKU</span>
+          <span>Lot Number</span>
+          <span>Released</span>
+          <span></span>
+        </div>
+        <!-- Rows injected via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="footer-wrap">
+      <div class="footer-col">
+        <img src="logo.svg" alt="Catalyx Peptides">
+        <p>
+          Catalyx Peptides supplies high-purity research reference materials
+          to qualified laboratories. Founded by chemists, built on analytical
+          transparency.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <a href="catalog.html">Full Catalog</a>
+        <a href="coa.html">Certificates of Analysis</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="#">Safety Data Sheets</a>
+        <a href="#">Shipping & Returns</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact Support</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Terms of Use</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Research Disclaimer</a>
+        <a href="#">Accessibility</a>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <strong>RESEARCH USE ONLY DISCLAIMER:</strong>
+      All products sold by Catalyx Peptides are intended for laboratory
+      research use only. Products are <strong>NOT for human or veterinary use</strong>,
+      not for use in diagnostic procedures, not for food, drug, cosmetic, or
+      household use, and have <strong>NOT been evaluated by the U.S. Food and
+      Drug Administration</strong>.
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 Catalyx Peptides LLC. All rights reserved.</div>
+      <div>Made in USA · Ships Worldwide where permitted by law</div>
+    </div>
+  </footer>
+
+<script>
+  // Age gate enable
+  const checks = ['chk-age', 'chk-researcher'];
+  const enterBtn = document.getElementById('enter-btn');
+  checks.forEach(id => {
+    document.getElementById(id).addEventListener('change', () => {
+      const allChecked = checks.every(c => document.getElementById(c).checked);
+      enterBtn.disabled = !allChecked;
+    });
+  });
+
+  // ============== COA LIBRARY DATA ==============
+  const coas = [
+    { product: "GLP-3 (RT) 10mg", sku: "CTX-GLP3-10", lot: "LOT-2026-0418-A", date: "04/18/2026", file: "coa/ctx-glp3-10.pdf" },
+    { product: "GLP-3 (RT) 20mg", sku: "CTX-GLP3-20", lot: "LOT-2026-0418-B", date: "04/18/2026", file: "coa/ctx-glp3-20.pdf" },
+    { product: "GLP-3 (RT) 30mg", sku: "CTX-GLP3-30", lot: "LOT-2026-0418-C", date: "04/18/2026", file: "coa/ctx-glp3-30.pdf" },
+    { product: "GHK-Cu 100mg", sku: "CTX-GHKCU-100", lot: "LOT-2026-0327-A", date: "03/27/2026", file: "coa/ctx-ghkcu-100.pdf" },
+    { product: "BPC 157 10mg", sku: "CTX-BPC157-10", lot: "LOT-2026-0402-B", date: "04/02/2026", file: "coa/ctx-bpc157-10.pdf" },
+    { product: "TB 500 10mg", sku: "CTX-TB500-10", lot: "LOT-2026-0320-A", date: "03/20/2026", file: "coa/ctx-tb500-10.pdf" },
+    { product: "Tesamorelin 10mg", sku: "CTX-TES-10", lot: "LOT-2026-0315-C", date: "03/15/2026", file: "coa/ctx-tes-10.pdf" },
+    { product: "CJC 1295 / Ipamorelin 10mg", sku: "CTX-CJC-10", lot: "LOT-2026-0310-A", date: "03/10/2026", file: "coa/ctx-cjc-10.pdf" },
+    { product: "MOTS-C 10mg", sku: "CTX-MOTSC-10", lot: "LOT-2026-0301-A", date: "03/01/2026", file: "coa/ctx-motsc-10.pdf" },
+    { product: "Melanotan II 10mg", sku: "CTX-MT2-10", lot: "LOT-2026-0228-B", date: "02/28/2026", file: "coa/ctx-mt2-10.pdf" },
+    { product: "GLOW 70mg", sku: "CTX-GLOW-70", lot: "LOT-2026-0220-A", date: "02/20/2026", file: "coa/ctx-glow-70.pdf" },
+    { product: "KLOW 80mg", sku: "CTX-KLOW-80", lot: "LOT-2026-0215-A", date: "02/15/2026", file: "coa/ctx-klow-80.pdf" },
+    { product: "KPV 10mg", sku: "CTX-KPV-10", lot: "LOT-2026-0210-A", date: "02/10/2026", file: "coa/ctx-kpv-10.pdf" },
+    { product: "Glutathione 600mg", sku: "CTX-GSH-600", lot: "LOT-2026-0205-A", date: "02/05/2026", file: "coa/ctx-gsh-600.pdf" },
+    { product: "Bacteriostatic Water 10ml", sku: "CTX-BAC-10", lot: "LOT-2026-0130-A", date: "01/30/2026", file: "coa/ctx-bac-10.pdf" },
+    { product: "Acetic Acid 0.6% 3ml", sku: "CTX-AA-3", lot: "LOT-2026-0125-A", date: "01/25/2026", file: "coa/ctx-aa-3.pdf" }
+  ];
+
+  const lib = document.getElementById('coa-library');
+  coas.forEach(c => {
+    const row = document.createElement('div');
+    row.className = 'coa-library-row';
+    row.innerHTML = `
+      <span class="prod-name">${c.product}</span>
+      <span class="sku">${c.sku}</span>
+      <span class="lot">${c.lot}</span>
+      <span class="date">${c.date}</span>
+      <a href="${c.file}" target="_blank" rel="noopener">Download PDF</a>
+    `;
+    lib.appendChild(row);
+  });
+
+  function searchCOA() {
+    const q = document.getElementById('coa-search-input').value.trim().toLowerCase();
+    if (!q) { alert('Please enter a lot number.'); return; }
+    const match = coas.find(c => c.lot.toLowerCase() === q || c.sku.toLowerCase() === q);
+    if (match) {
+      window.open(match.file, '_blank');
+    } else {
+      alert('No certificate found for "' + q + '". Please check your lot number and try again, or contact support.');
+    }
+  }
+
+  document.getElementById('coa-search-input').addEventListener('keypress', e => {
+    if (e.key === 'Enter') searchCOA();
+  });
+</script>
+
+</body>
+</html>
