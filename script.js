@@ -7,13 +7,11 @@
   const gate = document.getElementById('gate');
   if (!gate) return;
 
-  // If already verified, hide the gate immediately
   if (localStorage.getItem(GATE_KEY) === 'true') {
     gate.style.display = 'none';
     return;
   }
 
-  // Otherwise wire up the checkboxes and enter button
   const checks = ['chk-age', 'chk-researcher'];
   const enterBtn = document.getElementById('enter-btn');
   if (!enterBtn) return;
@@ -34,5 +32,55 @@
     if (enterBtn.disabled) return;
     localStorage.setItem(GATE_KEY, 'true');
     gate.style.display = 'none';
+  });
+})();
+
+// ===================== MOBILE NAV HAMBURGER =====================
+
+(function() {
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  const backdrop = document.getElementById('nav-backdrop');
+  if (!toggle || !links) return;
+
+  function closeMenu() {
+    toggle.classList.remove('open');
+    links.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function openMenu() {
+    toggle.classList.add('open');
+    links.classList.add('open');
+    if (backdrop) backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  toggle.addEventListener('click', () => {
+    if (links.classList.contains('open')) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Close menu when clicking the backdrop
+  if (backdrop) {
+    backdrop.addEventListener('click', closeMenu);
+  }
+
+  // Close menu when clicking any nav link
+  links.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close menu on resize back to desktop
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (window.innerWidth > 900) closeMenu();
+    }, 100);
   });
 })();

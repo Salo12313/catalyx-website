@@ -65,18 +65,23 @@
       <a href="index.html" class="brand">
         <img src="logo.svg" alt="Catalyx Peptides">
       </a>
-      <div class="nav-links">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="catalog.html">Catalog</a>
         <a href="coa.html" class="active">COAs</a>
         <a href="#">About</a>
         <a href="#">Contact</a>
+        <a href="#" class="mobile-account">Account</a>
       </div>
       <div class="nav-actions">
         <button class="nav-btn">Account</button>
       </div>
     </nav>
   </header>
+  <div class="nav-backdrop" id="nav-backdrop"></div>
 
   <!-- ================= PAGE HEADER ================= -->
   <section class="page-header">
@@ -140,7 +145,6 @@
 
       <div class="footer-col">
         <h4>Resources</h4>
-        <a href="#">Safety Data Sheets</a>
         <a href="#">Shipping & Returns</a>
         <a href="#">FAQ</a>
         <a href="#">Contact Support</a>
